@@ -1,0 +1,194 @@
+@import "layouts";
+
+
+body{
+    overflow-x: hidden;
+}
+
+.first-section{
+    .bg{
+        position: absolute;
+        top: 0px;
+        max-width: 100%;
+        width: 100%;
+        z-index: -1;
+        height: 800px;
+    }
+
+    .top-shadow{
+        position: absolute;
+        top: 0px;
+        max-width: 100%;
+    }
+
+    .container{
+        padding-top: 50px;
+    }
+}
+
+.register-wrapper{
+    margin-top: 20px;
+    margin-bottom: 70px;
+
+    .container{
+        display: flex;
+        justify-content: center;
+        position: relative;
+    }
+
+    .login{
+        position: absolute;
+        top: 50px;
+        transform: translateX(-300%);
+        opacity: 0;
+    }
+
+    .content-wrapper{
+        width: 40%;
+        padding: 40px;
+        border-radius: 10px;
+        background-color: rgba($color: #000000, $alpha: 0.6);
+        transition: all 0.5s ease;
+
+        .title{
+            color: white;
+            font-family: "m-semi-bold";
+            font-size: 40px;
+        }
+
+        .input-wrapper{
+            margin-bottom: 35px;
+            position: relative;
+            
+            label{
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                color: white;
+                font-family: "m-regular";
+                font-size: 18px;
+                transition: all 0.2s;
+            }
+    
+            .input{
+                display: block;
+                padding: 10px;
+                width: 100%;
+                border: none;
+                background-color: transparent;
+                border-bottom: 1px solid white;
+                color: white;
+                font-size: 18px;
+
+                &::placeholder{
+                    color: white;
+                }
+            }
+
+            .error{
+                position: absolute;
+                color: $text-color;
+                font-family: "m-light";
+                margin-top: 5px;
+            }
+        }
+
+        .buttons{
+            margin-top: 60px;
+            display: flex;
+            align-items: center;
+
+            .link{
+                color: #656565;
+                font-family: "m-regular";
+                text-decoration: none; 
+                cursor: pointer; 
+
+                &:hover{
+                    color: $text-color;
+                }
+            }
+        }
+
+        form{
+            position: relative;
+            .show-thumbs{
+                transform: translateX(0)!important;
+            }
+
+            .announce-wrapper-good{
+                position: absolute;
+                overflow: hidden;
+                width: 188px;
+                right: -228px;
+                top: 100px;
+                height: 250px;
+                animation-name: animate-thumb;
+                animation-duration: 2s;
+                animation-iteration-count: infinite;
+
+                .icon{
+                    transform: translateX(-100%);
+                    width: 100%;
+                    height: 188px;
+                    fill: green;
+                    transition: all 0.5s ease;
+                }
+            }
+
+            .announce-wrapper-bad{
+                @extend .announce-wrapper-good;
+                left: -228px;
+
+                .icon{
+                    transform: translateX(100%);
+                    fill: red;
+                }
+            }
+
+            .announce-wrapper-good-login{
+                @extend .announce-wrapper-good;
+                top: -93px;
+            }
+            .announce-wrapper-bad-login{
+                @extend .announce-wrapper-bad;
+                top: -45px;
+            }
+        }
+    }
+}
+
+.move-label{
+    top: -15px !important;
+    left: 0px !important;
+    font-size: 13px !important;
+}
+
+.warn{
+    border-color: $text-color !important;
+}
+
+.disable-button{
+    background-color: thistle;
+    cursor: default;
+
+    &:hover{
+        background-color: thistle;
+    }
+}
+
+.hide-register-form{
+    transform: translateX(300%);
+    opacity: 0;
+}
+
+.show-login-form{
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+
+@keyframes animate-thumb{
+    0%{transform: translateY(50px);}
+    50%{transform: translateY(0px);}
+    100%{transform: translateY(50px);}
+}

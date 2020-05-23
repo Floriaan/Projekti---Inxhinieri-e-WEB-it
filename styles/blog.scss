@@ -1,0 +1,31 @@
+// @import "articles";
+@import "layouts";
+
+.main-content{
+    flex: 4;
+
+    .article{
+        display: flex;
+        align-items: center;
+        margin-bottom: 100px;
+
+        .movie-cover{
+            margin-right: 30px;
+        }
+
+        .text-wrapper{
+            .title{
+                line-height: 1.2;
+                font-size: 36px;
+                font-family: "m-semi-bold";
+                margin-bottom: 30px;
+                margin-top: 0px;
+            }
+
+            .movie-description{
+                margin-top: 0px;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
