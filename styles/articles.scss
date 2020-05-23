@@ -1,0 +1,136 @@
+@import "layouts";
+
+.first-section{
+    position: relative;
+    padding-bottom: 15px;
+
+    .bg{
+        position: absolute;
+        top: 0px;
+        max-width: 100%;
+        width: 100%;
+        z-index: -1;
+        height: 800px;
+    }
+
+    .top-shadow{
+        position: absolute;
+        top: 0px;
+        max-width: 100%;
+    }
+
+    .container{
+        padding-top: 50px;
+    }
+}
+
+.main-section{
+    padding: 90px 0px;
+    .container{
+        display: flex;
+
+        .main-content{
+            flex: 4;
+
+            .article-main-image{
+
+                .image{
+                    max-width: 100%;
+                }
+            }
+
+            hr{
+                border-color: rgb(76, 76, 76);
+                margin: 60px 0px;
+            }
+
+            .title{
+                text-transform: uppercase;
+                padding-bottom: 20px;
+                font-family: "m-light";
+                color: white;
+            }
+
+            .article-title{
+                @extend .movie-title;
+                font-size: 38px;
+                margin: 25px 0px;
+            }
+
+            .likes-comments{
+                display: flex;
+                .comments{
+                    margin-right: 20px;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .likes{
+                    @extend .comments;
+                }
+                .icon-wrapper{
+                    display: inline-block;
+                    height: 20px;
+                    width: 20px;
+                    margin-right: 5px;
+
+                    .icon{
+                        fill: white;
+                    }
+                }
+
+                .sum{
+                    color: white;
+                    font-family: "m-regular";
+                    font-size: 16px;
+                }
+            }
+
+            .article-description{
+                @extend .movie-description;
+                margin-bottom: 80px;
+            }
+
+            .social-media{
+                .social{
+                    @extend .link-icon;
+                    svg{
+                        fill: white;
+                    }
+                }
+            }
+
+            .articles-wrapper{
+                display: flex;
+                
+                article{
+                    flex: 1;
+                    display: flex;
+                    align-items: center;
+                    margin-right: 100px;
+
+                    .image-wrapper{
+                        margin-right: 25px;
+                    }
+        
+                    .text-wrapper{
+                        .title{
+                            font-family: "m-medium";
+                            color: white;
+                            line-height: 1.643;
+                            padding-bottom: 3px;
+                        }
+        
+                        .learn-more{
+                            @extend .link;
+                            font-family: "m-light";
+                            font-size: 12px;
+                            color: lighten(rgb(76, 76, 76), 30);
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
