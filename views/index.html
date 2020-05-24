@@ -27,7 +27,10 @@
                         <ul class="main-nav">
                             <li class="link text"><a href="../views/index.html">Homepage</a></li>
                             <li class="link text"><a href="">Serials</a></li>
-                            <li class="link text"><a href="">My List</a></li>
+                            <li class="link text">
+                                <a href="">My List</a>
+                                <span class="items-number" id="itemsNo"></span>
+                            </li>
                             <li class="link text"><a href="../views/blog.html">Blog</a></li>
                             <li class="link text"><a href="../views/articles.html">Articles</a></li>
                         </ul>
@@ -55,7 +58,7 @@
                 </header>
 
                 <section class="movie-wrapper">
-                    <aside class="movie-details">
+                    <aside class="movie-details" data-movie="The Avengers">
                         <div class="categories">
                             <div class="year">2012</div>
                             <div class="action">action</div>
@@ -69,7 +72,7 @@
                             unprecedented threat to Earth.
                         </p>
                         <div class="buttons">
-                            <div class="play-trailer movie-details-button">
+                            <div class="play-trailer movie-details-button play-button" data-movie-trailer="avengers">
                                 <div class="content">
                                     <svg version="1.1" class="icon" xmlns="http://www.w3.org/2000/svg"
                                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -106,18 +109,23 @@
                         </div>
                         <div class="cover-wrapper">
                             <img src="../assets/images/movie-covers/prison-break.png" alt="" class="cover">
+                            <div class="overlay"></div>
                         </div>
                         <div class="cover-wrapper">
                             <img src="../assets/images/movie-covers/blacklist.png" alt="" class="cover">
+                            <div class="overlay"></div>
                         </div>
                         <div class="cover-wrapper">
                             <img src="../assets/images/movie-covers/the100.png" alt="" class="cover">
+                            <div class="overlay"></div>
                         </div>
                         <div class="cover-wrapper">
                             <img src="../assets/images/movie-covers/lucifer.png" alt="" class="cover">
+                            <div class="overlay"></div>
                         </div>
                         <div class="cover-wrapper">
                             <img src="../assets/images/movie-covers/avengers-assemble.png" alt="" class="cover">
+                            <div class="overlay"></div>
                         </div>
                         <div class="pag right-pag">
                             <svg version="1.1" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129"
@@ -147,7 +155,7 @@
 </svg>
                         </a>
                     </aside>
-                    <aside class="movie-details">
+                    <aside class="movie-details" data-movie="Mission Impossible">
                         <div class="categories">
                             <div class="year">2018</div>
                             <div class="action">action</div>
@@ -189,7 +197,7 @@
         <section class="third-section">
             <div class="container">
                 <div class="deal">
-                    <img src="../assets/images/limited-deal.png" alt="" class="image">
+                    <a href=""><img src="../assets/images/limited-deal.png" alt="" class="image"></a>
                 </div>
 
                 <section class="slider-wrapper">
@@ -1103,7 +1111,7 @@
         <section class="fourth-section">
             <div class="container">
                 <section class="movie-wrapper">
-                    <aside class="movie-details">
+                    <aside class="movie-details" data-movie="Jurassic World">
                         <div class="categories">
                             <div class="year">2018</div>
                             <div class="action">action</div>
@@ -1117,7 +1125,7 @@
                             while uncovering a conspiracy that threatens the entire planet.
                         </p>
                         <div class="buttons">
-                            <div class="play-trailer movie-details-button">
+                            <div class="play-trailer movie-details-button play-button" data-movie-trailer="jurassicWorld">
                                 <div class="content">
                                     <svg version="1.1" class="icon" xmlns="http://www.w3.org/2000/svg"
                                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -1137,7 +1145,7 @@
                         </div>
                     </aside>
                     <aside class="movie-cover">
-                        <!-- <img src="../assets/images/movie-covers/avengers.png" alt="" class="cover"> -->
+                        <!-- <img src="../assets/images/movie-covers/c6a7f90afc56541905a72e417de1eccd.jpg" alt="" class="cover"> -->
                     </aside>
                 </section>
             </div>
@@ -1157,7 +1165,7 @@
                         </a>
                         <img src="../assets/images/VenomTrailer2_02.png" alt="" class="cover">
                     </aside>
-                    <aside class="movie-details">
+                    <aside class="movie-details" data-movie="Venom">
                         <div class="categories">
                             <div class="year">2018</div>
                             <div class="action">action</div>
@@ -1196,7 +1204,7 @@
         <section class="sixth-section">
             <div class="container">
                 <div class="deal">
-                    <img src="../assets/images/limited-deal.png" alt="" class="image">
+                    <a href=""><img src="../assets/images/limited-deal.png" alt="" class="image"></a>
                 </div>
 
                 <div class="content">
@@ -1538,6 +1546,13 @@
                 <div class="video-trailer">
                     <iframe id="trailer" data-now-playing="" width="100%" height="100%" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
+            </div>
+        </div>
+
+        <div class="announcement-wrapper" id="announceWrapper">
+            <div class="announce">
+                <span class="announcement-highlight" id="highlight"></span>
+                <span class="announce-text" id="announce"></span>
             </div>
         </div>
     </div>

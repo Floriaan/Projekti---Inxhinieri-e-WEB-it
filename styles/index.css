@@ -23,6 +23,11 @@
   src: url(../assets/fonts/Montserrat-SemiBold.ttf);
 }
 
+@font-face {
+  font-family: "m-extra-bold";
+  src: url(../assets/fonts/Montserrat-ExtraBold.ttf);
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -67,6 +72,22 @@ ul {
   background-color: #020D18;
   height: 100%;
   z-index: 0;
+}
+
+.overlay {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.3;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.overlay:hover {
+  background-color: #333333;
 }
 
 .movie-title {
@@ -220,6 +241,7 @@ ul {
 }
 
 .header .main-nav-wrapper .main-nav .link {
+  position: relative;
   display: inline;
   margin-right: 30px;
 }
@@ -237,6 +259,29 @@ ul {
 
 .header .main-nav-wrapper .main-nav .link a:hover {
   color: #f10e1f;
+}
+
+.header .main-nav-wrapper .main-nav .link .items-number {
+  position: absolute;
+  top: -13px;
+  right: -11px;
+  background-color: #f10e1f;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  font-family: sans-serif;
+  font-weight: 600;
+  color: white;
+  font-size: 12px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .header .search-wrapper {
@@ -482,15 +527,16 @@ footer .row .movies .item:hover {
   right: -30px;
   top: -35px;
   display: block;
-  color: white;
+  color: #f10e1f;
   font-size: 30px;
-  font-family: "m-semi-bold";
+  font-family: "m-extra-bold";
   cursor: pointer;
 }
 
 .trailer-wrapper .trailer .video-trailer {
   width: 100%;
   height: 100%;
+  background-color: black;
 }
 
 .side-content {
@@ -618,6 +664,45 @@ footer .row .movies .item:hover {
   display: -webkit-box !important;
   display: -ms-flexbox !important;
   display: flex !important;
+}
+
+.announcement-wrapper {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.announcement-wrapper .announce {
+  padding: 20px 30px;
+  background-color: black;
+}
+
+.announcement-wrapper .announce .announce-text {
+  font-family: "m-regular";
+  color: white;
+}
+
+.announcement-wrapper .announce .announcement-highlight {
+  color: #f10e1f;
+  font-family: "m-extra-bold";
+}
+
+.show-announcement {
+  -webkit-transform: translateY(-100%) !important;
+          transform: translateY(-100%) !important;
 }
 
 .year, .action, .adventure {
@@ -912,7 +997,7 @@ footer .row .movies .item:hover {
 
 .first-section {
   position: relative;
-  padding-bottom: 15px;
+  padding-bottom: 25px;
 }
 
 .first-section .bg {
@@ -971,6 +1056,19 @@ footer .row .movies .item:hover {
 
 .first-section .container .movie-wrapper .movie-cover .cover {
   width: 100%;
+}
+
+.first-section .slider {
+  height: 200px;
+}
+
+.first-section .slider .cover-wrapper {
+  position: relative;
+  height: 100%;
+}
+
+.first-section .slider .cover-wrapper .cover {
+  height: 100%;
 }
 
 .second-section {
@@ -1061,11 +1159,13 @@ footer .row .movies .item:hover {
 
 .third-section .container .movies-wrapper .movie .movie-cover {
   position: relative;
+  height: 200px;
 }
 
 .third-section .container .movies-wrapper .movie .movie-cover .cover {
   max-width: 100%;
   width: 100%;
+  height: 100%;
 }
 
 .third-section .container .movies-wrapper .movie .movie-title {
@@ -1288,6 +1388,12 @@ footer .row .movies .item:hover {
 
 .sixth-section .news-wrapper .row article:last-of-type {
   margin-right: 0px;
+}
+
+.sixth-section .news-wrapper .row article .cover {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
 }
 
 .sixth-section .news-wrapper .row article .title {

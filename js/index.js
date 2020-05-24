@@ -44,7 +44,8 @@ const movie = {
     movieTrailers: {
         missionImpossible: "https://www.youtube.com/embed/Ohws8y572KE",
         venom: "https://www.youtube.com/embed/u9Mv98Gr5pY",
-        jurassicPark: null
+        jurassicWorld: "https://www.youtube.com/embed/vn9mMeWcgoM",
+        avengers: "https://www.youtube.com/embed/eOrNdBpGMv8"
     },
     autoplay: "?autoplay=1",
     trailer: document.getElementById("trailer"),
@@ -89,4 +90,55 @@ document.querySelectorAll(".play-button").forEach(
 
 document.getElementById("closeTrailer").addEventListener("click", () => {
     movie.closeTrailerWrapper();
+});
+
+const addToListData = {
+    moviesList: ["Jurassic World", "The Avengers", "Mission Impossible", "Venom"],
+    addedMovies: [],
+    announceWrapper: document.getElementById("announceWrapper"),
+    announce: document.getElementById("announce"),
+    highlight: document.getElementById("highlight"),
+    itemsNo: document.getElementById("itemsNo")
+};
+
+function showAnnouncement(text, highlight = ""){
+    addToListData["highlight"].textContent = highlight;
+    addToListData["announce"].textContent = text;
+    addToListData["announceWrapper"].classList.add("show-announcement");
+    setTimeout(() => {
+        addToListData["announceWrapper"].classList.remove("show-announcement");
+    } ,5000);
+}
+
+let assignMovieListCounter = () => {
+    if(addToListData["addedMovies"].length === 0){
+        addToListData["itemsNo"].style.display = "none";
+    }
+    else{
+        addToListData["itemsNo"].style.display = "inline-flex";
+        addToListData["itemsNo"].textContent = addToListData["addedMovies"].length;
+    }
+};
+
+assignMovieListCounter();
+
+function addMovieToList(movie){
+    if(addToListData["addedMovies"].includes(movie)){
+        showAnnouncement("This movie has been already added to the list.");
+    }
+    else if(!addToListData["moviesList"].includes(movie)){
+        showAnnouncement("Movie does not exist.");
+    }
+    else{
+        showAnnouncement(" has been added to the list. Check your list for more details.", movie);
+        addToListData["addedMovies"].push(movie);
+        assignMovieListCounter();
+    }
+}
+
+const addTolistButtons = document.querySelectorAll(".add-to-list");
+addTolistButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        addMovieToList(button.parentElement.parentElement.getAttribute("data-movie"));
+    });
 });

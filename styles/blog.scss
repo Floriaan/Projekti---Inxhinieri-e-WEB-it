@@ -1,13 +1,21 @@
-// @import "articles";
-@import "layouts";
+@import "articles";
 
 .main-content{
     flex: 4;
+
+    .articles-wrapper{
+        flex-direction: column;
+        max-height: 1200px;
+        overflow: hidden;
+        transition: all 0.4s ease;
+        position: relative;
+    }
 
     .article{
         display: flex;
         align-items: center;
         margin-bottom: 100px;
+        margin-right: 0px !important;
 
         .movie-cover{
             margin-right: 30px;
@@ -27,5 +35,77 @@
                 margin-bottom: 20px;
             }
         }
+    }
+
+    .movie-details-button{
+        position: absolute;
+        bottom: 0px;
+        left: 50%;
+        margin-left: -72.5px;
+
+        .label{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+    }
+
+    .news-wrapper{
+        margin-top: 80px;
+        overflow: hidden;
+        max-height: 465px;
+        transition: all 0.3s ease;
+
+        .row{
+            display: flex;
+            flex-wrap: wrap;
+            padding-bottom: 70px;
+            article{
+                position: relative;
+                flex: 1;
+                margin-right: 27px;
+
+                &:last-of-type{
+                    margin-right: 0px;
+                }
+
+                .cover{
+                    width: 100%;
+                    height: 100%;
+                    max-height: 100%;
+                }
+
+                .title{
+                    font-family: "m-medium";
+                    position: absolute;
+                    bottom: 0px;
+                    padding: 17px 7px;
+                    color: white;
+                    background-color: rgba($color: #000000, $alpha: 0.7);
+                    line-height: 1.714;
+                    text-transform: none;
+                }
+            }
+        }
+    }
+}
+
+.articles-expander{
+    position: absolute;
+    bottom: 0px;
+    visibility: hidden;
+
+    &:checked ~ .articles-wrapper{
+        max-height: 2400px;
+    }
+
+    &:not(:checked) ~ .articles-wrapper .label:after{
+        content: "show more";
+    }
+    &:checked ~ .articles-wrapper .label:after{
+        content: "show less";
     }
 }

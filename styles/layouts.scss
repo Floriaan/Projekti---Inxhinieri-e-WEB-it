@@ -26,6 +26,11 @@ $text-color: rgb(241, 14, 31);
     src: url(../assets/fonts/Montserrat-SemiBold.ttf);
 }
 
+@font-face{
+    font-family: "m-extra-bold";
+    src: url(../assets/fonts/Montserrat-ExtraBold.ttf);
+}
+
 html{
     scroll-behavior: smooth;
 }
@@ -67,6 +72,21 @@ ul{
     background-color: #020D18;
     height: 100%;
     z-index: 0;
+}
+
+.overlay{
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.3;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover{
+        background-color: lighten(black, 20);
+    }
 }
 
 .movie-title{
@@ -190,6 +210,7 @@ ul{
         align-items: center;
         .main-nav{
             .link{
+                position: relative;
                 display: inline;
                 margin-right: 30px;
                     
@@ -205,6 +226,23 @@ ul{
                     &:hover{
                         color: $text-color;
                     }
+                }
+
+                .items-number{
+                    position: absolute;
+                    top: -13px;
+                    right: -11px;
+                    background-color: $text-color;
+                    width: 17px;
+                    height: 17px;
+                    border-radius: 50%;
+                    font-family: sans-serif;
+                    font-weight: 600;
+                    color: white;
+                    font-size: 12px;
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
                 }
             }
         }
@@ -418,15 +456,16 @@ footer{
             right: -30px;
             top: -35px;
             display: block;
-            color: white;
+            color: $text-color;
             font-size: 30px;
-            font-family: "m-semi-bold";
+            font-family: "m-extra-bold";
             cursor: pointer;
         }
 
         .video-trailer{
             width: 100%;
             height: 100%;
+            background-color: black;
         }
     }
 }
@@ -529,4 +568,34 @@ footer{
 
 .display-trailer{
     display: flex !important;
+}
+
+.announcement-wrapper{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(100%);
+    transition: all 0.2s ease-in-out;
+
+    .announce{
+        padding: 20px 30px;
+        background-color: black;
+
+        .announce-text{
+            font-family: "m-regular";
+            color: white;
+        }
+
+        .announcement-highlight{
+            color: $text-color;  
+            font-family: "m-extra-bold";  
+        }
+    }
+}
+
+.show-announcement{
+    transform: translateY(-100%) !important;
 }
